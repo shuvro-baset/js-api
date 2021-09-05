@@ -1,11 +1,14 @@
+// this function is for displaying the cookies data into the browser. If the user comes back later
 const displayLocalStorageCart = () => {
+    // checking cart. if it's already cached or not.
     const cart = getCart();
     for (const name in cart) {
+        // calling display function.
         displayProduct(name);
     }
 }
 
-
+// add item 
 const addItem = () => {
     const nameField = document.getElementById('product-name');
     const name = nameField.value;
@@ -21,13 +24,14 @@ const addItem = () => {
     //clear
     nameField.value = '';
 }
+// display the input product that user has given
 const displayProduct = name => {
     const ul = document.getElementById('products');
     const li = document.createElement('li');
     li.innerText = name;
     ul.appendChild(li);
 }
-
+// adding product in to cart
 const getCart = () => {
     const cart = localStorage.getItem('cart');
     let cartObj;
