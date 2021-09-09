@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get-api-data</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 my-5 d-flex justify-content-center ">
+                <input id="input-data" type="text"> &nbsp;
+                <button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
+            </div>
+            <div id="text"></div>
+        </div>
+    </div>
+
+    <script>
+        const submitBtn = document.getElementById("submit-btn");
+        submitBtn.addEventListener("click", function() {
+            const inputData = document.getElementById("input-data").value;
+            const regularExpressionForEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if(inputData.match(regularExpressionForEmail)){
+                const successMsg = document.getElementById('text');
+                successMsg.innerHTML = `<p class="text-success">Your Input is Valid</p>`
+
+    } else {
+        const msg = document.getElementById('text');
+        msg.innerHTML = `<p class="text-danger">Input  Valid character! </p>`
+
+    }
+    document.getElementById("input-data").value = '';
+    })
+
+    </script>
+
+</body>
+</html>
